@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script>
+	var str = "Spinning...";
+	var result = str.fontcolor("white");
+
+	$(document).ready(function(){
+		$('#loading').hide();
+		$("button").click(function(){
+			$("form").hide();
+			$( "custom-block" ).replaceWith(result);
+		});
+	});
+</script>
+
+	{% if link %}
+	<!-- NAME -->
+	<p>
+		<b>
+			<a href="{{ link }}" style="color: orange">
+				<font face = "Verdana" size = "5">
+					{{ name }}
+				</font>
+			</a>
+		</b>
+	</p>
+	{% endif %}
+
+	{% if warn_msg %}
+	<!-- WARNING -->
+	<p>
+		<f style="color: yellow">
+			<font face = "Verdana" size = "2">
+				{{ warn_msg }}
+			</font>
+		</f>
+	</p>
+	{% endif %}
+
+	{% if err_msg %}
+	<!-- ERROR -->
+	<p>
+		<font face = "Verdana" size = "2" color = "red">
+			{{ err_msg }}
+		</font>
+	</p>
+	{% endif %}
+
+
+	{% if info_msg %}
+	<!-- INFO -->
+	<p>
+		<f style="color: yellowgreen">
+			<font face = "Verdana" size = "2">
+				{{ info_msg }}
+			</font>
+		</f>
+	</p>
+	{% endif %}
+
+
+	{% if movie_info %}
+	<!-- LINK -->
+	<p>
+		<span style="color: yellowgreen; font-family: Verdana; font-size: 12px;">
+			{{ movie_info }} 
+			<a href="{{ list_page_url }}" style="color: orange; font-family: Verdana; font-size: 12px;">
+				{{ link_text }}
+			</a>
+		</span>
+	</p>
+	{% endif %}
+
+{% endblock content%}
